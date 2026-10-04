@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ContactEmail, ContactEmailRequest, ContactInfoRequest, ContactPage, ContactPhone, ContactPhoneRequest, OfficeHour, OfficeHourRequest } from '../models/contact.model';
 
 
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ import { ContactEmail, ContactEmailRequest, ContactInfoRequest, ContactPage, Con
 })
 export class ContactService {
 
-  private readonly baseUrl = 'http://localhost:8080';
+private readonly baseUrl = environment.apiUrl;
+
   private readonly adminUrl = `${this.baseUrl}/admin/contact`;
 
   constructor(private http: HttpClient) {}

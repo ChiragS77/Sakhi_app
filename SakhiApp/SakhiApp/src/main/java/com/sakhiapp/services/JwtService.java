@@ -18,10 +18,14 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
+
+
     @Value("${jwt.secret}")
     private String secret;
 
-    private static final long JWT_EXPIRATION = 24 * 60 * 60 * 1000L;
+    @Value("${jwt.expiration}")
+    private long jwtExpiration;
+
 
 
     // =========================
@@ -89,7 +93,7 @@ public class JwtService {
                 .setExpiration(
                         new Date(
                                 System.currentTimeMillis()
-                                        + JWT_EXPIRATION
+                                        + jwtExpiration
                         )
                 )
                 .signWith(

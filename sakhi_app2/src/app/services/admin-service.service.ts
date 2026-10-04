@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Service, ServiceCategory, ServiceItem } from '../models/service.model';
 import { DashboardStats } from '../models/contact.model';
 
+import { environment } from 'src/environments/environment';
 export interface CreateCategoryRequest {
   title: string;
   description: string;
@@ -49,7 +50,8 @@ export interface CreateServiceItemRequest {
 })
 export class AdminServiceService {
 
-  private apiUrl = 'http://localhost:8080/admin/services';
+
+    private apiUrl = `${environment.apiUrl}/admin/services`;
 
   constructor(
     private http: HttpClient
@@ -224,11 +226,11 @@ export class AdminServiceService {
     );
   }
 
-  getDashboardStats(): Observable<DashboardStats> {
-  return this.http.get<any>(
-  'http://localhost:8080/admin/services/stats',
-  { withCredentials: true }
-)
+ getDashboardStats(): Observable<DashboardStats> {
+  return this.http.get<DashboardStats>(
+    `${this.apiUrl}/stats`,
+    { withCredentials: true }
+  );
 }
 
 }

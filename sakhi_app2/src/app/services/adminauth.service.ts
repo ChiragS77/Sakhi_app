@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
 export interface AdminLoginRequest {
   username: string;
   password: string;
@@ -18,7 +19,7 @@ export interface AdminLoginResponse {
 export class AdminauthService {
 
 
-   private apiUrl = 'http://localhost:8080/admin';
+private apiUrl = `${environment.apiUrl}/admin`;
 
   constructor(private http: HttpClient) {}
 

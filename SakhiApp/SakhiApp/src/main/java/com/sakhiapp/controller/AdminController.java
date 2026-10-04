@@ -5,6 +5,7 @@ import com.sakhiapp.dto.LoginRequest;
 import com.sakhiapp.services.JwtService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,11 @@ public class AdminController {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    @Value("${app.cookie.secure:true}")
+    private boolean cookieSecure;
+
+    @Value("${jwt.expiration}")
+    private long jwtExpiration;
 
 
     @PostMapping("/login")
@@ -75,7 +81,7 @@ public class AdminController {
         ResponseCookie cookie =
                 ResponseCookie.from("jwt", token)
                         .httpOnly(true)
-                        .secure(false) // true in production HTTPS
+                        .secure(cookieSecure) // true in production HTTPS
                         .path("/")
                         .maxAge(Duration.ofHours(24))
                         .sameSite("Lax")
@@ -94,5 +100,21 @@ public class AdminController {
                         "username", userDetails.getUsername()
                 )
         );
+    }
+
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        ResponseCookie cookie = ResponseCookie.from("jwt", "")
+                .httpOnly(true)
+                .secure(cookieSecure)
+                .path("/")
+                .maxAge(0)
+                .sameSite("Lax")
+                .build();
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                .body(Map.of("message", "Logged out"));
     }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Service, ServiceCategory } from '../models/service.model';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
 export interface ServicesTitle {
   id: number;
   title: string;
@@ -12,8 +13,9 @@ export interface ServicesTitle {
   providedIn: 'root'
 })
 export class BusinessService {
-  private apiUrl = 'http://localhost:8080/services';
-  private adminUrl = 'http://localhost:8080/admin/services';
+  
+  private apiUrl = `${environment.apiUrl}/services`;
+private adminUrl = `${environment.apiUrl}/admin/services`;
 
   constructor(private http: HttpClient) {}
 
