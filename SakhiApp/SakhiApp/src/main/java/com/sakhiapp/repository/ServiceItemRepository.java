@@ -1,4 +1,20 @@
 package com.sakhiapp.repository;
 
-public interface ServiceItemRepository {
+import com.sakhiapp.entity.ServiceItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface ServiceItemRepository extends JpaRepository<ServiceItem,Long> {
+
+    List<ServiceItem> findByServiceIdAndActiveTrueOrderByDisplayOrderAsc(
+            Long serviceId
+    );
+
+    boolean existsByTitleIgnoreCaseAndServiceId(
+            String title,
+            Long serviceId
+    );
 }

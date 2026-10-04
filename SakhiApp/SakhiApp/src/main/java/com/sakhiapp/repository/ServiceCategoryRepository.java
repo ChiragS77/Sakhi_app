@@ -13,4 +13,7 @@ public interface ServiceCategoryRepository extends JpaRepository<ServiceCategory
     List<ServiceCategory> findByActiveTrueOrderByDisplayOrderAsc();
 
     boolean existsByTitleIgnoreCase(String title);
+
+
+    long countByActiveTrue();
 }
