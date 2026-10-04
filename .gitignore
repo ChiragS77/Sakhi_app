@@ -1,0 +1,42 @@
+# ---------- Secrets (never commit) ----------
+.env
+.env.*
+!.env.example
+application-local.properties
+application-prod.properties
+*.pem
+*.key
+*.p12
+*.jks
+
+# ---------- Backend (Spring Boot / Maven) ----------
+target/
+*.log
+logs/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+# ---------- Frontend (Angular) ----------
+node_modules/
+dist/
+.angular/
+/tmp
+/out-tsc
+npm-debug.log*
+yarn-error.log
+
+# ---------- IDEs ----------
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+.sts4-cache/
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
