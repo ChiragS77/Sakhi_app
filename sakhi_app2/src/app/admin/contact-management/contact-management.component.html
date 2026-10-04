@@ -1,0 +1,733 @@
+<div class="contact-page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+
+    <div>
+
+      <div class="eyebrow">
+        CONTENT MANAGEMENT
+      </div>
+
+      <h1>
+        Contact
+      </h1>
+
+      <p>
+        Manage your business contact information, phone numbers,
+        emails and office hours.
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="backToDashboard()"
+    >
+      ← Dashboard
+    </button>
+
+  </div>
+
+
+  <!-- SUCCESS -->
+  <div
+    class="message success-message"
+    *ngIf="success"
+  >
+    <span>✓</span>
+    {{ success }}
+  </div>
+
+
+  <!-- ERROR -->
+  <div
+    class="message error-message"
+    *ngIf="error"
+  >
+    <span>!</span>
+    {{ error }}
+  </div>
+
+
+  <!-- LOADING -->
+  <div
+    class="loading-state"
+    *ngIf="loading"
+  >
+    <div class="loader"></div>
+    <span>Loading contact information...</span>
+  </div>
+
+
+  <div
+    class="contact-content"
+    *ngIf="!loading"
+  >
+
+
+    <!-- =====================================================
+         CONTACT INFORMATION
+    ====================================================== -->
+
+    <section class="management-card">
+
+      <div class="card-header">
+
+        <div>
+          <span class="section-eyebrow">
+            GENERAL INFORMATION
+          </span>
+
+          <h2>
+            Contact Information
+          </h2>
+
+          <p>
+            Update the main contact information displayed
+            on your website.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="form-grid">
+
+        <div class="form-group full-width">
+
+          <label>
+            Business Address
+          </label>
+
+          <textarea
+            [(ngModel)]="address"
+            name="address"
+            rows="4"
+            placeholder="Enter your business address"
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            WhatsApp Enquiry Number
+          </label>
+
+          <input
+            type="text"
+            [(ngModel)]="whatsappEnquiryNumber"
+            name="whatsapp"
+            placeholder="e.g. 917972814989"
+          >
+
+          <small>
+            Include country code without + or spaces.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="card-actions">
+
+        <button
+          type="button"
+          class="primary-button"
+          [disabled]="saving"
+          (click)="saveContactInfo()"
+        >
+          {{ saving ? 'Saving...' : 'Save Changes' }}
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PHONE NUMBERS
+    ====================================================== -->
+
+    <section class="management-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <span class="section-eyebrow">
+            PHONE NUMBERS
+          </span>
+
+          <h2>
+            Phone Numbers
+          </h2>
+
+          <p>
+            Manage the phone numbers displayed on the website.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="primary-button"
+          (click)="openAddPhone()"
+        >
+          + Add Phone
+        </button>
+
+      </div>
+
+
+      <div
+        class="empty-state"
+        *ngIf="phones.length === 0"
+      >
+        No phone numbers added yet.
+      </div>
+
+
+      <div
+        class="data-list"
+        *ngIf="phones.length > 0"
+      >
+
+        <div
+          class="data-row"
+          *ngFor="let phone of phones"
+        >
+
+          <div class="data-main">
+
+            <span class="data-number">
+              {{ phone.displayOrder.toString().padStart(2, '0') }}
+            </span>
+
+            <strong>
+              {{ phone.phoneNumber }}
+            </strong>
+
+          </div>
+
+
+          <div class="row-actions">
+
+            <button
+              type="button"
+              class="row-action"
+              (click)="openEditPhone(phone)"
+            >
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="row-action delete"
+              (click)="deletePhone(phone)"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EMAILS
+    ====================================================== -->
+
+    <section class="management-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <span class="section-eyebrow">
+            EMAIL ADDRESSES
+          </span>
+
+          <h2>
+            Email Addresses
+          </h2>
+
+          <p>
+            Manage business email addresses shown on the website.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="primary-button"
+          (click)="openAddEmail()"
+        >
+          + Add Email
+        </button>
+
+      </div>
+
+
+      <div
+        class="empty-state"
+        *ngIf="emails.length === 0"
+      >
+        No email addresses added yet.
+      </div>
+
+
+      <div
+        class="data-list"
+        *ngIf="emails.length > 0"
+      >
+
+        <div
+          class="data-row"
+          *ngFor="let email of emails"
+        >
+
+          <div class="data-main">
+
+            <span class="data-number">
+              {{ email.displayOrder.toString().padStart(2, '0') }}
+            </span>
+
+            <strong>
+              {{ email.email }}
+            </strong>
+
+          </div>
+
+
+          <div class="row-actions">
+
+            <button
+              type="button"
+              class="row-action"
+              (click)="openEditEmail(email)"
+            >
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="row-action delete"
+              (click)="deleteEmail(email)"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OFFICE HOURS
+    ====================================================== -->
+
+    <section class="management-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <span class="section-eyebrow">
+            BUSINESS HOURS
+          </span>
+
+          <h2>
+            Office Hours
+          </h2>
+
+          <p>
+            Manage your business operating hours.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="primary-button"
+          (click)="openAddOfficeHour()"
+        >
+          + Add Hours
+        </button>
+
+      </div>
+
+
+      <div
+        class="empty-state"
+        *ngIf="officeHours.length === 0"
+      >
+        No office hours added yet.
+      </div>
+
+
+      <div
+        class="data-list"
+        *ngIf="officeHours.length > 0"
+      >
+
+        <div
+          class="data-row"
+          *ngFor="let hour of officeHours"
+        >
+
+          <div class="data-main">
+
+            <span class="data-number">
+              {{ hour.displayOrder.toString().padStart(2, '0') }}
+            </span>
+
+            <div>
+
+              <strong>
+                {{ hour.dayLabel }}
+              </strong>
+
+              <span
+                class="hours-status"
+                [class.closed]="hour.closed"
+              >
+                {{ hour.closed ? 'Closed' : hour.timings }}
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="row-actions">
+
+            <button
+              type="button"
+              class="row-action"
+              (click)="openEditOfficeHour(hour)"
+            >
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="row-action delete"
+              (click)="deleteOfficeHour(hour)"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       MODAL
+  ====================================================== -->
+
+  <div
+    class="modal-overlay"
+    *ngIf="modalType"
+    (click)="closeModal()"
+  >
+
+    <div
+      class="modal"
+      (click)="$event.stopPropagation()"
+    >
+
+
+      <!-- MODAL HEADER -->
+
+      <div class="modal-header">
+
+        <div>
+
+          <span class="modal-eyebrow">
+            {{ modalType === 'phone'
+              ? 'PHONE NUMBER'
+              : modalType === 'email'
+              ? 'EMAIL ADDRESS'
+              : 'OFFICE HOURS'
+            }}
+          </span>
+
+          <h2>
+            {{ editingId === null ? 'Add' : 'Edit' }}
+            {{ modalType === 'phone'
+              ? 'Phone Number'
+              : modalType === 'email'
+              ? 'Email Address'
+              : 'Office Hours'
+            }}
+          </h2>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="close-button"
+          (click)="closeModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+
+      <!-- PHONE FORM -->
+
+      <form
+        *ngIf="modalType === 'phone'"
+        (ngSubmit)="savePhone()"
+      >
+
+        <div class="form-group">
+
+          <label>
+            Phone Number
+          </label>
+
+          <input
+            type="text"
+            name="phoneNumber"
+            [(ngModel)]="phoneForm.phoneNumber"
+            placeholder="+91 79728 14989"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Display Order
+          </label>
+
+          <input
+            type="number"
+            name="phoneOrder"
+            [(ngModel)]="phoneForm.displayOrder"
+            min="1"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="closeModal()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+            [disabled]="saving"
+          >
+            {{ saving ? 'Saving...' : 'Save Phone' }}
+          </button>
+
+        </div>
+
+      </form>
+
+
+
+      <!-- EMAIL FORM -->
+
+      <form
+        *ngIf="modalType === 'email'"
+        (ngSubmit)="saveEmail()"
+      >
+
+        <div class="form-group">
+
+          <label>
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="emailForm.email"
+            placeholder="hello@sakhi.com"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Display Order
+          </label>
+
+          <input
+            type="number"
+            name="emailOrder"
+            [(ngModel)]="emailForm.displayOrder"
+            min="1"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="closeModal()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+            [disabled]="saving"
+          >
+            {{ saving ? 'Saving...' : 'Save Email' }}
+          </button>
+
+        </div>
+
+      </form>
+
+
+
+      <!-- OFFICE HOURS FORM -->
+
+      <form
+        *ngIf="modalType === 'office-hour'"
+        (ngSubmit)="saveOfficeHour()"
+      >
+
+        <div class="form-group">
+
+          <label>
+            Day Label
+          </label>
+
+          <input
+            type="text"
+            name="dayLabel"
+            [(ngModel)]="officeHourForm.dayLabel"
+            placeholder="Monday – Friday"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Timings
+          </label>
+
+          <input
+            type="text"
+            name="timings"
+            [(ngModel)]="officeHourForm.timings"
+            placeholder="9:00 AM – 7:00 PM"
+            [disabled]="officeHourForm.closed"
+          >
+
+        </div>
+
+
+        <label class="checkbox-field">
+
+          <input
+            type="checkbox"
+            name="closed"
+            [(ngModel)]="officeHourForm.closed"
+          >
+
+          <span>
+            Closed
+          </span>
+
+        </label>
+
+
+        <div class="form-group">
+
+          <label>
+            Display Order
+          </label>
+
+          <input
+            type="number"
+            name="hourOrder"
+            [(ngModel)]="officeHourForm.displayOrder"
+            min="1"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="closeModal()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+            [disabled]="saving"
+          >
+            {{ saving ? 'Saving...' : 'Save Hours' }}
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,1564 @@
+/* =========================================================
+   SAKHI — ABOUT SECTION
+   Clean Professional Blue Theme
+========================================================= */
+
+:host {
+  display: block;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+.about-section {
+
+  --navy: #102a43;
+  --blue: #1769e0;
+  --blue-dark: #0d4fb8;
+  --blue-light: #edf5ff;
+
+  --text: #172b4d;
+  --muted: #66758a;
+
+  --white: #ffffff;
+  --section-bg: #f8fafc;
+
+  --border: #e4ebf3;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 105px 0 100px;
+
+  background: var(--section-bg);
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.about-bg {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.about-glow {
+
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  right: -240px;
+  top: 80px;
+
+  border-radius: 50%;
+
+  background: rgba(23, 105, 224, .08);
+
+  filter: blur(100px);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.about-container {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--blue);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+.section-label span {
+
+  width: 28px;
+  height: 2px;
+
+  background: var(--blue);
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.about-intro {
+
+  display: grid;
+
+  grid-template-columns: 1fr 390px;
+
+  gap: 70px;
+
+  align-items: end;
+
+  padding-bottom: 70px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.intro-heading h2 {
+
+  max-width: 760px;
+
+  margin: 18px 0 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    44px,
+    5.5vw,
+    68px
+  );
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -2.8px;
+}
+
+
+.intro-description {
+
+  max-width: 390px;
+
+  padding-bottom: 4px;
+}
+
+
+.intro-description p {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   TEXT LINK
+========================================================= */
+
+.text-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 24px;
+
+  color: var(--blue);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    color .25s ease;
+}
+
+
+.text-link svg {
+
+  width: 17px;
+  height: 17px;
+
+  transition:
+    transform .25s ease;
+}
+
+
+.text-link:hover {
+
+  color: var(--blue-dark);
+}
+
+
+.text-link:hover svg {
+
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   BUSINESS STATEMENT
+========================================================= */
+
+.about-statement {
+
+  display: grid;
+
+  grid-template-columns: 150px 1fr;
+
+  gap: 70px;
+
+  padding: 85px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.statement-label {
+
+  padding-top: 8px;
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.statement-content {
+
+  max-width: 880px;
+}
+
+
+.statement-content h3 {
+
+  margin: 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    36px,
+    4vw,
+    54px
+  );
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  letter-spacing: -2px;
+}
+
+
+.statement-content h3 span {
+
+  color: var(--blue);
+}
+
+
+.statement-content p {
+
+  max-width: 700px;
+
+  margin: 25px 0 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   PILLARS
+========================================================= */
+
+.pillars-section {
+
+  display: grid;
+
+  grid-template-columns: .7fr 1.3fr;
+
+  gap: 90px;
+
+  padding: 85px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.pillars-heading > span {
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.pillars-heading h3 {
+
+  max-width: 380px;
+
+  margin: 18px 0 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 36px;
+
+  font-weight: 700;
+
+  line-height: 1.12;
+
+  letter-spacing: -1.5px;
+}
+
+
+.pillars-heading h3 strong {
+
+  display: block;
+
+  color: var(--blue);
+
+  font-weight: 700;
+}
+
+
+.pillars-heading > p {
+
+  max-width: 340px;
+
+  margin: 20px 0 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PILLAR LIST
+========================================================= */
+
+.pillars-list {
+
+  border-top: 1px solid var(--border);
+}
+
+
+.pillar-item {
+
+  display: grid;
+
+  grid-template-columns: 45px 1fr;
+
+  gap: 20px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid var(--border);
+
+  transition:
+    padding-left .25s ease,
+    background .25s ease;
+}
+
+
+.pillar-item:hover {
+
+  padding-left: 7px;
+}
+
+
+.pillar-number {
+
+  padding-top: 5px;
+
+  color: var(--blue);
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.pillar-content {
+
+  display: grid;
+
+  grid-template-columns: 44px 1fr;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   PILLAR ICON
+========================================================= */
+
+.pillar-icon {
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 9px;
+
+  background: var(--blue-light);
+
+  border: 1px solid #dceaff;
+
+  color: var(--blue);
+
+  font-size: 16px;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+
+.pillar-item:hover .pillar-icon {
+
+  background: var(--blue);
+
+  color: white;
+
+  transform:
+    translateY(-2px);
+}
+
+
+.pillar-content h4 {
+
+  margin: 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+
+.pillar-content p {
+
+  max-width: 570px;
+
+  margin: 7px 0 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.team-section {
+
+  padding-top: 95px;
+}
+
+
+.team-heading {
+
+  display: grid;
+
+  grid-template-columns: 1fr .7fr;
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-bottom: 45px;
+}
+
+
+.team-heading h2 {
+
+  max-width: 700px;
+
+  margin: 18px 0 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    40px,
+    5vw,
+    60px
+  );
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+}
+
+
+.team-heading > p {
+
+  max-width: 420px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   TEAM GRID
+========================================================= */
+
+.team-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   TEAM CARD
+========================================================= */
+
+.team-card {
+
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+
+.team-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    #cdddf4;
+
+  box-shadow:
+    0 18px 40px rgba(16, 42, 67, .10);
+}
+
+
+/* =========================================================
+   TEAM IMAGE
+========================================================= */
+
+.team-image-wrapper {
+
+  position: relative;
+
+  aspect-ratio: 4 / 4.8;
+
+  overflow: hidden;
+
+  background: #eef3f8;
+}
+
+
+.team-image {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform .6s ease;
+}
+
+
+.team-card:hover .team-image {
+
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.team-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(16, 42, 67, .18),
+      transparent 50%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TEAM INFO
+========================================================= */
+
+.team-info {
+
+  position: relative;
+
+  padding: 19px 18px 20px;
+
+  background: white;
+}
+
+
+.team-info h3 {
+
+  margin: 0;
+
+  padding-right: 35px;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+.team-role {
+
+  margin: 5px 0 0;
+
+  color: var(--blue);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   TEAM ARROW
+========================================================= */
+
+.team-arrow {
+
+  position: absolute;
+
+  right: 16px;
+
+  top: 17px;
+
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: white;
+
+  color: var(--blue);
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+
+.team-arrow svg {
+
+  width: 13px;
+  height: 13px;
+}
+
+
+.team-card:hover .team-arrow {
+
+  background: var(--blue);
+
+  color: white;
+
+  border-color: var(--blue);
+
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================================================
+   BIO
+========================================================= */
+
+.team-bio {
+
+  margin: 15px 0 0;
+
+  padding-top: 13px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 45px;
+
+  margin-top: 90px;
+
+  padding: 42px 48px;
+
+  border-radius: 10px;
+
+  background: var(--navy);
+
+  color: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 18px 45px rgba(16, 42, 67, .12);
+}
+
+
+/* Subtle blue decoration */
+
+.about-cta::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -100px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(23, 105, 224, .22);
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+
+.about-cta > div {
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.about-cta > div > span {
+
+  display: block;
+
+  color: #8bb8ff;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.about-cta h3 {
+
+  margin: 11px 0 0;
+
+  color: white;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 29px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  letter-spacing: -.7px;
+}
+
+
+.about-cta h3 strong {
+
+  color: #8bb8ff;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.cta-button {
+
+  position: relative;
+
+  z-index: 2;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 46px;
+
+  padding: 0 8px 0 20px;
+
+  border-radius: 7px;
+
+  background: white;
+
+  color: var(--navy);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+
+.cta-button svg {
+
+  width: 29px;
+  height: 29px;
+
+  padding: 7px;
+
+  border-radius: 6px;
+
+  background: var(--blue);
+
+  color: white;
+
+  transition:
+    transform .25s ease;
+}
+
+
+.cta-button:hover {
+
+  transform:
+    translateY(-2px);
+
+  background: #f5f8fc;
+}
+
+
+.cta-button:hover svg {
+
+  transform:
+    translateX(2px);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-wrapper {
+
+  padding: 60px 0;
+}
+
+
+.loading-title {
+
+  width: 420px;
+  max-width: 80%;
+
+  height: 60px;
+
+  margin-bottom: 18px;
+
+  border-radius: 7px;
+
+  background: #e8eef5;
+
+  animation:
+    pulse 1.5s infinite;
+}
+
+
+.loading-text {
+
+  width: 500px;
+  max-width: 90%;
+
+  height: 18px;
+
+  border-radius: 5px;
+
+  background: #e8eef5;
+
+  animation:
+    pulse 1.5s infinite;
+}
+
+
+.loading-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-top: 55px;
+}
+
+
+.loading-card {
+
+  height: 260px;
+
+  border-radius: 10px;
+
+  background: #e8eef5;
+
+  animation:
+    pulse 1.5s infinite;
+}
+
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .55;
+  }
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-state {
+
+  padding: 90px 20px;
+
+  text-align: center;
+}
+
+
+.error-icon {
+
+  width: 46px;
+  height: 46px;
+
+  margin: 0 auto 16px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 8px;
+
+  background: var(--blue-light);
+
+  color: var(--blue);
+
+  font-weight: 700;
+}
+
+
+.error-state h3 {
+
+  margin: 0;
+
+  color: var(--navy);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+
+.error-state p {
+
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .about-container {
+
+    width:
+      calc(100% - 50px);
+  }
+
+
+  .about-intro {
+
+    grid-template-columns:
+      1fr .8fr;
+
+    gap: 50px;
+  }
+
+
+  .pillars-section {
+
+    gap: 55px;
+  }
+
+
+  .team-heading {
+
+    gap: 45px;
+  }
+
+
+  .team-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .about-section {
+
+    padding:
+      80px 0 75px;
+  }
+
+
+  .about-container {
+
+    width:
+      calc(100% - 35px);
+  }
+
+
+  /* INTRO */
+
+  .about-intro {
+
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    padding-bottom: 55px;
+  }
+
+
+  .intro-heading h2 {
+
+    margin-top: 16px;
+
+    font-size: 44px;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+  }
+
+
+  .intro-description {
+
+    max-width: 100%;
+  }
+
+
+  .intro-description p {
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  /* STATEMENT */
+
+  .about-statement {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding: 60px 0;
+  }
+
+
+  .statement-label {
+
+    padding-top: 0;
+  }
+
+
+  .statement-content h3 {
+
+    font-size: 34px;
+
+    letter-spacing: -1.5px;
+  }
+
+
+  .statement-content p {
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  /* PILLARS */
+
+  .pillars-section {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 65px 0;
+  }
+
+
+  .pillars-heading h3 {
+
+    font-size: 32px;
+  }
+
+
+  .pillar-item {
+
+    grid-template-columns:
+      35px 1fr;
+
+    gap: 12px;
+  }
+
+
+  .pillar-content {
+
+    grid-template-columns:
+      38px 1fr;
+
+    gap: 13px;
+  }
+
+
+  .pillar-icon {
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+
+  .pillar-content h4 {
+
+    font-size: 16px;
+  }
+
+
+  .pillar-content p {
+
+    font-size: 11px;
+
+    line-height: 1.7;
+  }
+
+
+  /* TEAM */
+
+  .team-section {
+
+    padding-top: 70px;
+  }
+
+
+  .team-heading {
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+  }
+
+
+  .team-heading h2 {
+
+    font-size: 40px;
+
+    letter-spacing: -1.8px;
+  }
+
+
+  .team-heading > p {
+
+    font-size: 12px;
+  }
+
+
+  .team-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+
+  .team-image-wrapper {
+
+    aspect-ratio:
+      3 / 3.8;
+  }
+
+
+  .team-info {
+
+    padding:
+      15px 13px 17px;
+  }
+
+
+  .team-info h3 {
+
+    font-size: 14px;
+  }
+
+
+  .team-role {
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .team-arrow {
+
+    width: 26px;
+    height: 26px;
+
+    right: 10px;
+    top: 12px;
+  }
+
+
+  .team-arrow svg {
+
+    width: 11px;
+    height: 11px;
+  }
+
+
+  .team-bio {
+
+    font-size: 9px;
+
+    line-height: 1.6;
+  }
+
+
+  /* CTA */
+
+  .about-cta {
+
+    display: block;
+
+    margin-top: 65px;
+
+    padding: 32px 25px;
+
+    border-radius: 9px;
+  }
+
+
+  .about-cta h3 {
+
+    font-size: 25px;
+  }
+
+
+  .cta-button {
+
+    width: 100%;
+
+    margin-top: 25px;
+  }
+
+
+  /* LOADING */
+
+  .loading-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .about-container {
+
+    width:
+      calc(100% - 28px);
+  }
+
+
+  .intro-heading h2 {
+
+    font-size: 40px;
+  }
+
+
+  .statement-content h3 {
+
+    font-size: 30px;
+  }
+
+
+  .pillars-heading h3 {
+
+    font-size: 29px;
+  }
+
+
+  .team-heading h2 {
+
+    font-size: 36px;
+  }
+
+
+  .team-grid {
+
+    gap: 8px;
+  }
+
+
+  .team-info {
+
+    padding:
+      13px 10px 15px;
+  }
+
+
+  .team-info h3 {
+
+    font-size: 12px;
+  }
+
+
+  .team-role {
+
+    font-size: 6.5px;
+  }
+
+
+  .team-bio {
+
+    display: none;
+  }
+
+}

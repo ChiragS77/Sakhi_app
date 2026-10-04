@@ -1,0 +1,201 @@
+<header class="site-header">
+
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <a
+      routerLink="/"
+      (click)="closeMenu()"
+      class="brand"
+      aria-label="Sakhi Business Consulting">
+
+      <img
+        src="assets/sakhi_logo.png"
+        alt="Sakhi Business Consulting"
+        class="brand-logo"
+      />
+
+    </a>
+
+
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="desktop-nav">
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item">
+        Home
+      </a>
+
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        class="nav-item">
+        About
+      </a>
+
+      <a
+        routerLink="/services"
+        routerLinkActive="active"
+        class="nav-item">
+        Services
+      </a>
+
+      <a
+        routerLink="/insights"
+        routerLinkActive="active"
+        class="nav-item">
+        Insights
+      </a>
+
+    </nav>
+
+
+    <!-- DESKTOP CTA -->
+    <a
+      routerLink="/contact"
+      class="nav-cta">
+
+      <span>Contact Us</span>
+
+      <span class="cta-arrow">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2">
+
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 12h14M13 6l6 6-6 6" />
+
+        </svg>
+      </span>
+
+    </a>
+
+
+    <!-- MOBILE MENU BUTTON -->
+    <button
+      type="button"
+      class="mobile-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle navigation menu">
+
+      <svg
+        *ngIf="!isMenuOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8">
+
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16" />
+
+      </svg>
+
+
+      <svg
+        *ngIf="isMenuOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8">
+
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 6l12 12M18 6L6 18" />
+
+      </svg>
+
+    </button>
+
+  </div>
+
+
+  <!-- MOBILE MENU -->
+  <div
+    *ngIf="isMenuOpen"
+    class="mobile-menu">
+
+    <nav class="mobile-nav">
+
+      <a
+        routerLink="/"
+        (click)="closeMenu()"
+        routerLinkActive="mobile-active"
+        [routerLinkActiveOptions]="{ exact: true }">
+
+        Home
+
+      </a>
+
+
+      <a
+        routerLink="/about"
+        (click)="closeMenu()"
+        routerLinkActive="mobile-active">
+
+        About
+
+      </a>
+
+
+      <a
+        routerLink="/services"
+        (click)="closeMenu()"
+        routerLinkActive="mobile-active">
+
+        Services
+
+      </a>
+
+
+      <a
+        routerLink="/insights"
+        (click)="closeMenu()"
+        routerLinkActive="mobile-active">
+
+        Insights
+
+      </a>
+
+
+      <a
+        routerLink="/contact"
+        (click)="closeMenu()"
+        class="mobile-contact">
+
+        <span>Let's Talk</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2">
+
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 12h14M13 6l6 6-6 6" />
+
+        </svg>
+
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>

@@ -1,0 +1,41 @@
+{
+  "heading": "Get in Touch",
+  "subheading": "Ready to transform your brand's digital presence? Let's discuss your project and create something amazing together.",
+  "ctaLabel": "Contact Us Now",
+  "ctaLink": "/contact",
+  "cards": [
+    {
+      "icon": "phone",
+      "title": "Call Us",
+      "subtitle": "Available Monday to Saturday",
+      "lines": [
+        { "text": "+91 7972814989", "href": "tel:+917972814989" },
+        { "text": "+91 9529578497", "href": "tel:+919529578497" }
+       
+      ]
+    },
+    {
+      "icon": "mail",
+      "title": "Email Us",
+      "subtitle": "We'll respond within 24 hours",
+      "lines": [
+        { "text": "sakhibusinessconsulting@gmail.com", "href": "mailto:sakhibusinessconsulting@gmail.com" }
+      ]
+    },
+    {
+      "icon": "pin",
+      "title": "Visit Us",
+      "lines": [
+        { "text": "Shop no 07 1st Floor Kamthe Mate Bhuruk complex," },
+        { "text": "Near Bhairavnath Mandir, Dhayari Gaon," },
+        { "text": "Pune, Maharashtra - 411041" }
+      ]
+    }
+  ],
+  "businessHours": [
+    { "day": "Monday – Friday", "hours": "9:00 AM – 7:00 PM" },
+    { "day": "Saturday",        "hours": "10:00 AM – 4:00 PM" },
+    { "day": "Sunday",          "hours": "Closed", "closed": true }
+  ],
+  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0545!2d72.4830!3d23.0330!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAxJzU4LjgiTiA3MsKwMjgnNTguOCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+}

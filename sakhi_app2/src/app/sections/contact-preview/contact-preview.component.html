@@ -1,0 +1,376 @@
+<section id="contact-preview" class="contact-section">
+
+  <!-- Background -->
+  <div class="contact-background"></div>
+  <div class="contact-orb"></div>
+
+  <div class="contact-container">
+
+    <!-- ================================
+         LOADING
+    ================================= -->
+
+    <div *ngIf="loading" class="contact-loading">
+
+      <div class="loading-eyebrow"></div>
+      <div class="loading-heading"></div>
+      <div class="loading-text"></div>
+
+      <div class="loading-layout">
+        <div class="loading-left"></div>
+        <div class="loading-right"></div>
+      </div>
+
+    </div>
+
+
+    <!-- ================================
+         ERROR
+    ================================= -->
+
+    <div *ngIf="error" class="contact-error">
+
+      <div class="error-mark">
+        !
+      </div>
+
+      <h3>
+        Unable to load contact information
+      </h3>
+
+      <p>
+        Please try again later.
+      </p>
+
+    </div>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <ng-container *ngIf="info && !loading && !error">
+
+
+      <!-- HEADER -->
+
+      <div class="contact-header">
+
+        <div class="section-label">
+
+          <span class="label-line"></span>
+
+          <span>
+            CONTACT SAKHI
+          </span>
+
+        </div>
+
+
+        <h2>
+          Let’s move your
+          <strong>business forward.</strong>
+        </h2>
+
+
+        <p>
+          Have a question, need professional guidance, or planning
+          your next business step? Our team is here to help.
+        </p>
+
+      </div>
+
+
+      <!-- ================================
+           CONTACT LAYOUT
+      ================================= -->
+
+      <div class="contact-layout">
+
+
+        <!-- LEFT -->
+
+        <div class="contact-details">
+
+          <div class="details-heading">
+
+            <span class="details-number">
+              01
+            </span>
+
+            <div>
+
+              <span class="details-label">
+                GET IN TOUCH
+              </span>
+
+              <h3>
+                We’re here to help.
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <!-- Contact Information -->
+
+          <div class="contact-list">
+
+            <div
+              *ngFor="let c of info.cards; let i = index"
+              class="contact-item"
+            >
+
+              <!-- Number -->
+
+              <div class="item-number">
+                {{ ('0' + (i + 1)).slice(-2) }}
+              </div>
+
+
+              <!-- Icon -->
+
+              <div class="item-icon">
+
+
+                <!-- PHONE -->
+
+                <svg
+                  *ngIf="c.icon === 'phone'"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372a1.5 1.5 0 00-1.09-1.445l-4.423-1.206a1.5 1.5 0 00-1.64.586l-.97 1.293a1.5 1.5 0 01-1.84.46 12.035 12.035 0 01-6.353-6.353 1.5 1.5 0 01.46-1.84l1.293-.97a1.5 1.5 0 00.586-1.64L8.617 3.34A1.5 1.5 0 007.172 2.25H5.8a2.25 2.25 0 00-2.25 2.25v2.25z"
+                  />
+
+                </svg>
+
+
+                <!-- EMAIL -->
+
+                <svg
+                  *ngIf="c.icon === 'mail'"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0l-8.69 5.43a1.5 1.5 0 01-1.62 0L2.25 6.75"
+                  />
+
+                </svg>
+
+
+                <!-- LOCATION -->
+
+                <svg
+                  *ngIf="c.icon === 'pin'"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                  />
+
+                </svg>
+
+              </div>
+
+
+              <!-- INFORMATION -->
+
+              <div class="item-content">
+
+                <h4>
+                  {{ c.title }}
+                </h4>
+
+
+                <p *ngIf="c.subtitle">
+                  {{ c.subtitle }}
+                </p>
+
+
+                <div class="item-lines">
+
+                  <div
+                    *ngFor="let line of c.lines"
+                    class="item-line"
+                  >
+
+                    <a
+                      *ngIf="line.href; else plainText"
+                      [href]="line.href"
+                    >
+
+                      {{ line.text }}
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      >
+
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M7 17L17 7M7 7h10v10"
+                        />
+
+                      </svg>
+
+                    </a>
+
+
+                    <ng-template #plainText>
+
+                      <span>
+                        {{ line.text }}
+                      </span>
+
+                    </ng-template>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================================
+             RIGHT CTA PANEL
+        ================================= -->
+
+        <div class="contact-panel">
+
+          <div class="panel-decoration"></div>
+
+          <div class="panel-content">
+
+            <span class="panel-eyebrow">
+              SAKHI BUSINESS CONSULTING
+            </span>
+
+
+            <h3>
+              Your business.
+              <br />
+              Our expertise.
+            </h3>
+
+
+            <div class="panel-divider"></div>
+
+
+            <p>
+              From registrations and compliance to ongoing business
+              support, we help simplify the work behind running
+              and growing your business.
+            </p>
+
+
+            <a
+              [routerLink]="info.ctaLink"
+              class="panel-button"
+            >
+
+              <span>
+                {{ info.ctaLabel }}
+              </span>
+
+
+              <span class="button-circle">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6"
+                  />
+
+                </svg>
+
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================
+           BOTTOM STATEMENT
+      ================================= -->
+
+      <div class="contact-footer">
+
+        <div class="footer-rule"></div>
+
+        <div class="footer-content">
+
+          <span>
+            Professional
+          </span>
+
+          <i></i>
+
+          <span>
+            Transparent
+          </span>
+
+          <i></i>
+
+          <span>
+            Reliable
+          </span>
+
+        </div>
+
+        <div class="footer-rule"></div>
+
+      </div>
+
+
+    </ng-container>
+
+  </div>
+
+</section>

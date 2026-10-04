@@ -1,0 +1,476 @@
+<div class="admin-layout">
+
+  <!-- MOBILE OVERLAY -->
+  <div
+    class="sidebar-overlay"
+    *ngIf="sidebarOpen"
+    (click)="closeSidebar()">
+  </div>
+
+
+  <!-- SIDEBAR -->
+  <aside
+    class="admin-sidebar"
+    [class.sidebar-open]="sidebarOpen">
+
+    <!-- LOGO -->
+    <div class="sidebar-brand">
+
+      <div class="brand-logo">
+        <span class="logo-text">sakhi</span>
+        <span class="logo-line"></span>
+      </div>
+
+      <span class="brand-subtitle">
+        BUSINESS CONSULTING
+      </span>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="sidebar-nav">
+
+      <div class="nav-label">
+        MAIN
+      </div>
+
+      <button
+        class="nav-item active"
+        type="button"
+        (click)="navigate('/admin/dashboard')">
+
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+
+      </button>
+
+
+      <button
+        class="nav-item"
+        type="button"
+        (click)="navigate('/admin/services')">
+
+        <span class="nav-icon">▦</span>
+        <span>Services</span>
+
+      </button>
+
+      <button 
+        class="nav-item" 
+        type="button" 
+        (click)="navigate('/admin/contact')">
+
+      <span class="nav-icon">✉</span>
+       <span>Contact</span>
+
+      </button>
+
+
+      <div class="nav-label nav-label-space">
+        CONTENT
+      </div>
+
+
+      <button
+        class="nav-item"
+        type="button"
+        (click)="navigate('/admin/about')">
+
+        <span class="nav-icon">◫</span>
+        <span>About</span>
+
+      </button>
+
+
+      <button
+        class="nav-item"
+        type="button"
+        (click)="navigate('/admin/testimonials')">
+
+        <span class="nav-icon">◌</span>
+        <span>Testimonials</span>
+
+      </button>
+
+
+      <div class="nav-label nav-label-space">
+        ACCOUNT
+      </div>
+
+
+      <button
+        class="nav-item"
+        type="button"
+        (click)="navigate('/admin/change-password')">
+
+        <span class="nav-icon">⌘</span>
+        <span>Change Password</span>
+
+      </button>
+
+    </nav>
+
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="sidebar-footer">
+
+      <div class="admin-profile">
+
+        <div class="profile-avatar">
+          A
+        </div>
+
+        <div class="profile-info">
+          <strong>Administrator</strong>
+          <span>Admin account</span>
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="logout-button"
+        (click)="logout()">
+
+        <span>↪</span>
+        Logout
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="admin-main">
+
+    <!-- TOP HEADER -->
+    <header class="admin-header">
+
+      <div class="header-left">
+
+        <button
+          type="button"
+          class="mobile-menu-button"
+          (click)="toggleSidebar()">
+
+          ☰
+
+        </button>
+
+        <div>
+          <span class="header-eyebrow">
+            ADMINISTRATION
+          </span>
+
+          <h1>
+            Dashboard
+          </h1>
+        </div>
+
+      </div>
+
+
+      <div class="header-right">
+
+        <div class="admin-status">
+          <span class="status-dot"></span>
+          <span>Admin</span>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <section class="dashboard-content">
+
+      <!-- WELCOME -->
+      <div class="welcome-section">
+
+        <div>
+          <span class="section-eyebrow">
+            OVERVIEW
+          </span>
+
+          <h2>
+            Welcome back, Administrator.
+          </h2>
+
+          <p>
+            Manage your Sakhi Business Consulting website
+            from one secure place.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+
+       <div class="stat-card">
+
+    <div class="stat-top">
+      <span class="stat-label">
+        SERVICES
+      </span>
+
+      <div class="stat-icon">
+        ▦
+      </div>
+    </div>
+
+    <!-- CHANGED -->
+    <div class="stat-value">
+      {{ stats ? stats.activeServices : '—' }}
+    </div>
+
+    <p>
+      Active services
+    </p>
+
+  </div>
+
+
+
+        <div class="stat-card">
+
+    <div class="stat-top">
+      <span class="stat-label">
+        CATEGORIES
+      </span>
+
+      <div class="stat-icon">
+        ◫
+      </div>
+    </div>
+
+    <!-- CHANGED -->
+    <div class="stat-value">
+      {{ stats ? stats.totalCategories : '—' }}
+    </div>
+
+    <p>
+      Service categories
+    </p>
+
+  </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <span class="stat-label">
+              TESTIMONIALS
+            </span>
+
+            <div class="stat-icon">
+              ◌
+            </div>
+          </div>
+
+          <div class="stat-value">
+            —
+          </div>
+
+          <p>
+            Client stories
+          </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-top">
+            <span class="stat-label">
+              WEBSITE
+            </span>
+
+            <div class="stat-icon success-icon">
+              ✓
+            </div>
+          </div>
+
+          <div class="stat-value status-value">
+            Live
+          </div>
+
+          <p>
+            Website status
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOWER GRID -->
+      <div class="dashboard-grid">
+
+        <!-- QUICK ACTIONS -->
+        <div class="dashboard-card">
+
+          <div class="card-header">
+
+            <div>
+              <span class="section-eyebrow">
+                QUICK ACTIONS
+              </span>
+
+              <h3>
+                Manage your website
+              </h3>
+            </div>
+
+          </div>
+
+
+          <div class="quick-actions">
+
+            <button
+              type="button"
+              class="quick-action"
+              (click)="navigate('/admin/services')">
+
+              <span class="quick-icon">
+                +
+              </span>
+
+              <span>
+                <strong>Add Service</strong>
+                <small>Create a new business service</small>
+              </span>
+
+              <span class="arrow">
+                →
+              </span>
+
+            </button>
+
+            <button 
+  type="button" 
+  class="quick-action" 
+  (click)="navigate('/admin/contact')">
+
+  <span class="quick-icon">
+    +
+  </span>
+
+  <span>
+    <strong>Update Contact</strong>
+    <small>Manage contact information</small>
+  </span>
+
+  <span class="arrow">
+    →
+  </span>
+
+</button>
+
+
+            <button
+              type="button"
+              class="quick-action"
+              (click)="navigate('/admin/about')">
+
+              <span class="quick-icon">
+                +
+              </span>
+
+              <span>
+                <strong>Update About</strong>
+                <small>Manage company information</small>
+              </span>
+
+              <span class="arrow">
+                →
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              class="quick-action"
+              (click)="navigate('/admin/testimonials')">
+
+              <span class="quick-icon">
+                +
+              </span>
+
+              <span>
+                <strong>Add Testimonial</strong>
+                <small>Add a client story</small>
+              </span>
+
+              <span class="arrow">
+                →
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACCOUNT CARD -->
+        <div class="dashboard-card account-card">
+
+          <span class="section-eyebrow">
+            ACCOUNT
+          </span>
+
+          <h3>
+            Administrator
+          </h3>
+
+          <p>
+            Your administrator account has access to
+            manage the Sakhi website content.
+          </p>
+
+
+          <div class="account-divider"></div>
+
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="navigate('/admin/change-password')">
+
+            Change password
+
+            <span>→</span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <footer class="dashboard-footer">
+
+        <span>
+          © {{ 2026 }} Sakhi Business Consulting
+        </span>
+
+        <span>
+          Admin Portal
+        </span>
+
+      </footer>
+
+    </section>
+
+  </main>
+
+</div>

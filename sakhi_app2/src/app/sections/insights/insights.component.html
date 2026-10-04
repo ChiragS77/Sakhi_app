@@ -1,0 +1,563 @@
+<section class="insights-page">
+
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+
+  <div class="insights-grid"></div>
+
+  <div class="insights-glow insights-glow-one"></div>
+
+  <div class="insights-glow insights-glow-two"></div>
+
+
+  <div class="insights-container">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="insights-hero">
+
+      <div class="hero-eyebrow">
+
+        <span></span>
+
+        BUSINESS INSIGHTS
+
+      </div>
+
+
+      <h1>
+
+        Business knowledge,
+
+        <br />
+
+        <strong>made simple.</strong>
+
+      </h1>
+
+
+      <p>
+
+        Practical guidance and useful insights to help you
+        start, manage, stay compliant and grow your business
+        with confidence.
+
+      </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         SEARCH & CATEGORIES
+    ====================================================== -->
+
+    <div class="insights-toolbar">
+
+
+      <!-- SEARCH -->
+
+      <div class="search-box">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8">
+
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-4.35-4.35m1.35-5.4a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Z"
+          />
+
+        </svg>
+
+
+        <input
+          type="text"
+          [value]="searchTerm"
+          (input)="searchTerm = $any($event.target).value"
+          placeholder="Search insights..."
+        />
+
+
+        <button
+          *ngIf="searchTerm"
+          type="button"
+          (click)="clearSearch()"
+          aria-label="Clear search">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2">
+
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+
+          </svg>
+
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           CATEGORIES
+      ================================================== -->
+
+      <div class="category-list">
+
+        <button
+          *ngFor="let category of categories"
+          type="button"
+          class="category-button"
+          [class.active]="selectedCategory === category"
+          (click)="selectCategory(category)">
+
+          {{ category }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FEATURED INSIGHT
+    ====================================================== -->
+
+    <section
+      class="featured-section"
+      *ngIf="
+        featuredInsight &&
+        selectedCategory === 'All' &&
+        !searchTerm
+      ">
+
+
+      <!-- SECTION LABEL -->
+
+      <div class="section-label">
+
+        <span class="section-number">
+          01
+        </span>
+
+        <span>
+          FEATURED INSIGHT
+        </span>
+
+      </div>
+
+
+      <!-- FEATURED CARD -->
+
+      <article class="featured-card">
+
+
+        <!-- IMAGE -->
+
+        <div class="featured-image">
+
+          <img
+            [src]="featuredInsight.image"
+            [alt]="featuredInsight.title"
+            loading="lazy"
+            (error)="onImageError($event)"
+          />
+
+          <div class="image-overlay"></div>
+
+
+          <span class="featured-tag">
+            FEATURED
+          </span>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="featured-content">
+
+
+          <div class="article-meta">
+
+            <span class="article-category">
+
+              {{ featuredInsight.category }}
+
+            </span>
+
+
+            <span class="meta-dot"></span>
+
+
+            <span>
+
+              {{ featuredInsight.readTime }}
+
+            </span>
+
+          </div>
+
+
+          <h2>
+
+            {{ featuredInsight.title }}
+
+          </h2>
+
+
+          <p>
+
+            {{ featuredInsight.excerpt }}
+
+          </p>
+
+
+          <div class="featured-footer">
+
+
+            <span class="article-date">
+
+              {{ featuredInsight.date }}
+
+            </span>
+
+
+            <a
+              [routerLink]="[
+                '/insights',
+                featuredInsight.slug
+              ]"
+              class="read-link">
+
+              Read Insight
+
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.8">
+
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14M13 6l6 6-6 6"
+                />
+
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- =====================================================
+         LATEST INSIGHTS
+    ====================================================== -->
+
+    <section class="latest-section">
+
+
+      <!-- HEADER -->
+
+      <div class="latest-header">
+
+
+        <div class="section-label">
+
+          <span class="section-number">
+
+            {{ selectedCategory === 'All' ? '02' : '01' }}
+
+          </span>
+
+
+          <span>
+
+            {{
+              selectedCategory === 'All'
+                ? 'LATEST INSIGHTS'
+                : selectedCategory.toUpperCase()
+            }}
+
+          </span>
+
+        </div>
+
+
+        <span class="result-count">
+
+          {{ filteredInsights.length }}
+
+          {{
+            filteredInsights.length === 1
+              ? 'insight'
+              : 'insights'
+          }}
+
+        </span>
+
+      </div>
+
+
+      <!-- =================================================
+           INSIGHT CARDS
+      ================================================== -->
+
+      <div
+        class="insights-grid-list"
+        *ngIf="latestInsights.length > 0">
+
+
+        <article
+          class="insight-card"
+          *ngFor="let insight of latestInsights">
+
+
+          <!-- IMAGE -->
+
+          <div class="card-image">
+
+
+            <img
+              [src]="insight.image"
+              [alt]="insight.title"
+              loading="lazy"
+              (error)="onImageError($event)"
+            />
+
+
+            <span class="card-category">
+
+              {{ insight.category }}
+
+            </span>
+
+          </div>
+
+
+          <!-- CONTENT -->
+
+          <div class="card-content">
+
+
+            <div class="card-meta">
+
+              <span>
+
+                {{ insight.date }}
+
+              </span>
+
+
+              <span class="meta-dot"></span>
+
+
+              <span>
+
+                {{ insight.readTime }}
+
+              </span>
+
+            </div>
+
+
+            <h3>
+
+              {{ insight.title }}
+
+            </h3>
+
+
+            <p>
+
+              {{ insight.excerpt }}
+
+            </p>
+
+
+            <a
+              [routerLink]="[
+                '/insights',
+                insight.slug
+              ]"
+              class="card-link">
+
+              Read More
+
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.8">
+
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14M13 6l6 6-6 6"
+                />
+
+              </svg>
+
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- =================================================
+           NO RESULTS
+      ================================================== -->
+
+      <div
+        class="no-results"
+        *ngIf="latestInsights.length === 0">
+
+
+        <div class="no-results-icon">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5">
+
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-4.35-4.35m1.35-5.4a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Z"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <h3>
+
+          No insights found
+
+        </h3>
+
+
+        <p>
+
+          Try searching for something else or choose another category.
+
+        </p>
+
+
+        <button
+          type="button"
+          (click)="clearSearch(); selectCategory('All')">
+
+          View All Insights
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="insights-cta">
+
+
+      <div class="cta-decoration"></div>
+
+
+      <div class="cta-content">
+
+
+        <span class="cta-eyebrow">
+
+          NEED PROFESSIONAL GUIDANCE?
+
+        </span>
+
+
+        <h2>
+
+          Have a business question?
+
+        </h2>
+
+
+        <p>
+
+          Every business is different. Talk to our team
+          about your specific requirements and get guidance
+          tailored to your business.
+
+        </p>
+
+
+        <a
+          routerLink="/contact"
+          class="cta-button">
+
+          Talk to Us
+
+
+          <span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8">
+
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 12h14M13 6l6 6-6 6"
+              />
+
+            </svg>
+
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+</section>

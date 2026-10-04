@@ -1,0 +1,362 @@
+<section id="about-preview" class="about-section">
+
+  <!-- Background -->
+  <div class="about-bg">
+    <div class="about-glow"></div>
+  </div>
+
+
+  <div class="about-container">
+
+    <!-- ================================
+         LOADING
+    ================================= -->
+
+    <div
+      *ngIf="loading"
+      class="loading-wrapper">
+
+      <div class="loading-title"></div>
+      <div class="loading-text"></div>
+
+      <div class="loading-grid">
+        <div
+          *ngFor="let i of [1,2,3]"
+          class="loading-card">
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ================================
+         ERROR
+    ================================= -->
+
+    <div
+      *ngIf="error"
+      class="error-state">
+
+      <div class="error-icon">
+        !
+      </div>
+
+      <h3>
+        Unable to load our story
+      </h3>
+
+      <p>
+        Please try again later.
+      </p>
+
+    </div>
+
+
+    <ng-container
+      *ngIf="data && !loading && !error">
+
+
+      <!-- ================================
+           INTRO
+      ================================= -->
+
+      <div class="about-intro">
+
+        <div class="intro-heading">
+
+          <div class="section-label">
+            <span></span>
+
+            <strong>
+              {{ data.preview.eyebrow }}
+            </strong>
+          </div>
+
+          <h2>
+            {{ data.preview.heading }}
+          </h2>
+
+        </div>
+
+
+        <div class="intro-description">
+
+          <p>
+            {{ data.preview.subheading }}
+          </p>
+
+          <a
+            [routerLink]="data.preview.ctaLink"
+            class="text-link">
+
+            <span>
+              {{ data.preview.ctaLabel }}
+            </span>
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8">
+
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 12h14M13 6l6 6-6 6"/>
+
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================
+           WHO WE ARE
+      ================================= -->
+
+      <div class="about-statement">
+
+        <div class="statement-label">
+          WHO WE ARE
+        </div>
+
+        <div class="statement-content">
+
+          <h3>
+            Building businesses with
+            <span>
+              clarity and confidence.
+            </span>
+          </h3>
+
+          <p>
+            Sakhi Business Consulting helps startups, SMEs
+            and growing businesses navigate registrations,
+            licenses, tax compliance and digital requirements
+            through practical, reliable and professional support.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================
+           OUR APPROACH
+      ================================= -->
+
+      <div class="pillars-section">
+
+        <div class="pillars-heading">
+
+          <span>
+            OUR APPROACH
+          </span>
+
+          <h3>
+            Simple principles.
+            <strong>Meaningful results.</strong>
+          </h3>
+
+          <p>
+            We focus on making business processes easier,
+            clearer and more manageable for our clients.
+          </p>
+
+        </div>
+
+
+        <div class="pillars-list">
+
+          <div
+            *ngFor="let p of data.preview.pillars; let i = index"
+            class="pillar-item">
+
+            <div class="pillar-number">
+              {{ (i + 1).toString().padStart(2, '0') }}
+            </div>
+
+
+            <div class="pillar-content">
+
+              <div class="pillar-icon">
+                {{ p.icon }}
+              </div>
+
+              <div>
+
+                <h4>
+                  {{ p.title }}
+                </h4>
+
+                <p>
+                  {{ p.desc }}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================
+           TEAM
+      ================================= -->
+
+      <div class="team-section">
+
+        <div class="team-heading">
+
+          <div>
+
+            <div class="section-label">
+
+              <span></span>
+
+              <strong>
+                OUR TEAM
+              </strong>
+
+            </div>
+
+            <h2>
+              {{ data.teamHeading }}
+            </h2>
+
+          </div>
+
+
+          <p>
+            {{ data.teamSubheading }}
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+          <div
+            *ngFor="let m of data.team"
+            class="team-card">
+
+
+            <!-- IMAGE -->
+
+            <div class="team-image-wrapper">
+
+              <img
+                [src]="m.photo"
+                [alt]="m.name"
+                class="team-image"
+                loading="lazy" />
+
+              <div class="team-overlay"></div>
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="team-info">
+
+              <div>
+
+                <h3>
+                  {{ m.name }}
+                </h3>
+
+                <p class="team-role">
+                  {{ m.role }}
+                </p>
+
+              </div>
+
+
+              <div class="team-arrow">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6"/>
+
+                </svg>
+
+              </div>
+
+
+              <p class="team-bio">
+                {{ m.bio }}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================
+           CTA
+      ================================= -->
+
+      <div class="about-cta">
+
+        <div>
+
+          <span>
+            READY TO MOVE YOUR BUSINESS FORWARD?
+          </span>
+
+          <h3>
+            Let's make your next step
+            <strong>simpler.</strong>
+          </h3>
+
+        </div>
+
+
+        <a
+          [routerLink]="data.preview.ctaLink"
+          class="cta-button">
+
+          {{ data.preview.ctaLabel }}
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 12h14M13 6l6 6-6 6"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+
+    </ng-container>
+
+  </div>
+
+</section>

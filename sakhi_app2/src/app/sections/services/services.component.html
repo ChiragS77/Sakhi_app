@@ -1,0 +1,183 @@
+<section class="services-page">
+
+  <!-- HERO -->
+  <div class="services-hero">
+
+    <div class="container">
+
+      <span class="eyebrow">
+        OUR SERVICES
+      </span>
+
+      <h1>
+        Professional support for
+        <span>every stage of your business.</span>
+      </h1>
+
+      <p>
+        From registrations and taxation to compliance and digital solutions,
+        we help you manage the essential requirements of running a business.
+      </p>
+
+      <a routerLink="/contact" class="hero-button">
+        Talk to an Expert
+
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12h14"></path>
+          <path d="M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- SERVICES -->
+  <div class="services-content">
+
+    <div class="container">
+
+      <div
+        class="service-category"
+        *ngFor="let category of categories"
+      >
+
+        <!-- CATEGORY HEADER -->
+        <div class="category-header">
+
+          <div>
+            <span class="category-label">
+              OUR SERVICES
+            </span>
+
+            <h2>
+              {{ category.title }}
+            </h2>
+          </div>
+
+          <p>
+            {{ category.description }}
+          </p>
+
+        </div>
+
+
+        <!-- SERVICE CARDS -->
+        <!-- SERVICE CARDS -->
+<div class="service-grid">
+
+  <div
+    class="service-card"
+    *ngFor="let service of category.services"
+    [class.open]="service.expanded"
+  >
+
+    <!-- CARD HEADER -->
+    <button
+      type="button"
+      class="service-header"
+      (click)="toggleService(service)"
+    >
+
+      <span class="service-number">
+        {{ getServiceIcon(service) }}
+      </span>
+
+      <span class="service-title">
+        {{ service.title }}
+      </span>
+
+      <span class="service-arrow">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
+        </svg>
+
+      </span>
+
+    </button>
+
+
+    <!-- DESCRIPTION -->
+    <div class="service-body">
+
+      <p>
+        {{ service.description }}
+      </p>
+
+      <div class="service-list">
+
+        <div
+          class="service-item"
+          *ngFor="let item of service.items"
+        >
+
+          <span class="check">
+            ✓
+          </span>
+
+          <span>
+            {{ item.title }}
+          </span>
+
+        </div>
+
+      </div>
+
+      <a routerLink="/contact" class="service-link">
+        Discuss this service
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CTA -->
+  <section class="services-cta">
+
+    <div class="container">
+
+      <div>
+
+        <span class="cta-label">
+          HAVE A REQUIREMENT?
+        </span>
+
+        <h2>
+          Let's find the right
+          <span>solution for your business.</span>
+        </h2>
+
+        <p>
+          Tell us what you need and our team will guide you through
+          the appropriate service and next steps.
+        </p>
+
+      </div>
+
+      <a routerLink="/contact" class="cta-button">
+        Contact Sakhi
+
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12h14"></path>
+          <path d="M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+
+    </div>
+
+  </section>
+
+</section>

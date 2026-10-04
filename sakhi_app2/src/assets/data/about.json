@@ -1,0 +1,97 @@
+{
+  "preview": {
+    "eyebrow": "About Us",
+    "heading": "Trusted business consulting, simplified",
+    "subheading": "Sakhi Business Consulting helps startups, SMEs, traders, and entrepreneurs manage registrations, licenses, tax compliance, and digital growth — with reliable support under one roof.",
+    "pillars": [
+      {
+        "icon": "🎯",
+        "title": "Our Mission",
+        "desc": "To make business compliance simple for every entrepreneur — from the first registration to ongoing compliance and annual filings."
+      },
+      {
+        "icon": "💡",
+        "title": "Our Vision",
+        "desc": "To be a trusted growth and compliance partner for India's small and growing businesses."
+      },
+      {
+        "icon": "🤝",
+        "title": "Our Values",
+        "desc": "Transparency, accuracy, and reliability guide everything we do — because your business deserves a partner you can depend on."
+      }
+    ],
+    "ctaLabel": "Discover more about us",
+    "ctaLink": "/about"
+  },
+
+  "full": {
+    "heroHeading": "Your business. Our expertise.",
+    "heroSubheading": "Sakhi Business Consulting is a full-service consultancy helping Indian businesses with registrations, licenses, tax compliance, and digital presence — from starting a business to taking it to the next level.",
+
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Clients Served"
+      },
+      {
+        "value": "20+",
+        "label": "Services Offered"
+      },
+      {
+        "value": "5+",
+        "label": "Years of Experience"
+      },
+      {
+        "value": "100%",
+        "label": "Commitment to Timely Filing"
+      }
+    ],
+
+    "story": {
+      "title": "Our Story",
+      "paragraphs": [
+        "Sakhi Business Consulting was founded with a simple purpose — to make business compliance easier for Indian entrepreneurs. Running a business already comes with enough challenges, and complex regulations, government paperwork, registrations, renewals, and tax compliance can take valuable time away from what entrepreneurs do best — building and growing their businesses.",
+        "That's where we come in. From Shop Act registrations and GST compliance to FSSAI licenses and import-export documentation, we help businesses manage the essential requirements that keep them compliant and ready to grow.",
+        "Our approach is simple: understand your requirement, guide you through the process, handle the paperwork, and keep you informed at every step. You focus on your business — we take care of the compliance."
+      ]
+    }
+  },
+
+  "teamHeading": "Our Team",
+  "teamSubheading": "The people behind the registrations, filings, and business support you can rely on.",
+
+  "team": [
+  {
+    "name": "Pratiksha Deshmukh",
+    "role": "Founder",
+    "photo": "assets/team/pratiksha.jpg",
+    "bio": "Oversees client operations and leads technology initiatives that help us deliver efficient, accurate, and streamlined compliance services.",
+    "linkedin": "#",
+    "email": "#"
+  },
+  {
+    "name": "Sneha Lavhale",
+    "role": "Founder",
+    "photo": "assets/team/morvin.jpg",
+    "bio": "Leads client consulting and advises businesses on registrations, compliance requirements, tax matters, and business growth.",
+    "linkedin": "#",
+    "email": "#"
+  },
+  {
+    "name": "Abhilash Lavhale",
+    "role": "CEO",
+    "photo": "assets/team/aditya.jpg",
+    "bio": "Drives the company's vision, partnerships, and long-term strategy across client segments and service lines.",
+    "linkedin": "#",
+    "email": "#"
+  },
+  {
+    "name": "Darshan Deshmukh",
+    "role": "CEO",
+    "photo": "assets/team/sneha.jpg",
+    "bio": "Leads growth, marketing, and client success to ensure every engagement delivers measurable business outcomes.",
+    "linkedin": "#",
+    "email": "#"
+  }
+]
+}

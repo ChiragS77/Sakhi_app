@@ -1,0 +1,221 @@
+<section class="services-preview">
+
+  <div class="container">
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <div class="preview-header">
+
+      <div class="header-main">
+
+        <div class="section-eyebrow">
+          <span></span>
+          OUR SERVICES
+        </div>
+
+        <h2>
+          Practical solutions for
+          <strong>your business.</strong>
+        </h2>
+
+      </div>
+
+
+      <div class="preview-intro">
+
+        <p>
+          Whether you're starting a business, managing compliance,
+          or looking to grow, Sakhi provides clear and practical
+          support at every stage.
+        </p>
+
+        <a
+          routerLink="/services"
+          class="view-services">
+
+          View all services
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
+            <path
+              d="M5 12h14"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+            </path>
+
+            <path
+              d="M13 6l6 6-6 6"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+            </path>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         SERVICES
+    ================================================= -->
+
+    <div class="preview-grid">
+
+      <a
+        *ngFor="let service of services"
+        routerLink="/services"
+        class="preview-card">
+
+        <!-- CARD HEADER -->
+
+        <div class="card-top">
+
+          <div class="service-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7">
+
+              <path
+                d="M6 3h12v18H6z"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+              </path>
+
+              <path
+                d="M9 7h6M9 11h6M9 15h4"
+                stroke-linecap="round">
+              </path>
+
+            </svg>
+
+          </div>
+
+          <span class="card-number">
+            {{ service.number }}
+          </span>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="card-content">
+
+          <span class="card-category">
+            {{ service.category }}
+          </span>
+
+          <h3>
+            {{ service.title }}
+          </h3>
+
+          <p>
+            {{ service.description }}
+          </p>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="card-bottom">
+
+          <span>
+            Explore service
+          </span>
+
+          <span class="card-arrow">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8">
+
+              <path
+                d="M5 12h14"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+              </path>
+
+              <path
+                d="M13 6l6 6-6 6"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+              </path>
+
+            </svg>
+
+          </span>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <div class="preview-footer">
+
+      <div class="footer-note">
+
+        <span class="footer-check">
+          ✓
+        </span>
+
+        <span>
+          Professional support for every stage of your business.
+        </span>
+
+      </div>
+
+
+      <a
+        routerLink="/services"
+        class="footer-link">
+
+        Explore all services
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8">
+
+          <path
+            d="M5 12h14"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+          </path>
+
+          <path
+            d="M13 6l6 6-6 6"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+          </path>
+
+        </svg>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
