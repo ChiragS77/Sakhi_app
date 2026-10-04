@@ -1,0 +1,48 @@
+🎁 Optional — Send Email on Submission
+When you're ready to also email the site owner, add this to the service. First, inject JavaMailSender:
+
+java
+private final JavaMailSender mailSender;
+
+public ContactMessageService(ContactMessageRepository repo, JavaMailSender mailSender) {
+    this.repo = repo;
+    this.mailSender = mailSender;
+}
+Then inside create() after saving:
+
+java
+ContactMessage saved = repo.save(incoming);
+sendOwnerEmail(saved);
+return saved;
+And the helper:
+
+java
+private void sendOwnerEmail(ContactMessage m) {
+    try {
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo("aarambhmedia10@gmail.com"); // your site owner's email
+        mail.setSubject("New contact message from " + m.getName());
+        mail.setText("""
+            Name: %s
+            Email: %s
+            Phone: %s
+            Business: %s
+            Service: %s
+            Submitted: %s
+
+            Message:
+            %s
+            """.formatted(
+                m.getName(),
+                m.getEmailAddress(),
+                m.getPhoneNumber(),
+                m.getBussinessName(),
+                m.getServiceName(),
+                m.getSubmittedAt(),
+                m.getMessage()
+        ));
+        mailSender.send(mail);
+    } catch (Exception e) {
+        // log but don't fail the request — the message is saved anyway
+    }
+}
