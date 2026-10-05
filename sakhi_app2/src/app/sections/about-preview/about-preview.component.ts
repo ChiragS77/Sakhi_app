@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AboutData } from 'src/app/models/about.model';
 import { AboutService } from 'src/app/services/about.service';
 
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-about-preview',
   templateUrl: './about-preview.component.html',
@@ -54,5 +57,8 @@ export class AboutPreviewComponent implements OnInit {
     });
 
   }
+
+
+  
 
 }
