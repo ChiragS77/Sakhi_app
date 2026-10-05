@@ -23,6 +23,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { ServicesManagementComponent } from './admin/services-management/services-management.component';
 import { ContactManagementComponent } from './admin/contact-management/contact-management.component';
 import { InsightDetailComponent } from './sections/insight-detail/insight-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { InsightDetailComponent } from './sections/insight-detail/insight-detail
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+     BrowserModule,
+    BrowserAnimationsModule,
        
   ],
   providers: [],
