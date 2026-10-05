@@ -28,7 +28,7 @@ public class SakhiAppApplication {
 		return args -> {
 
 			String adminUsername = "admin";
-			String adminPassword = "Admin@123";
+			String adminPassword = "Admin@sakhi@123";
 
 			// Check if admin already exists
 			if (userRepository.findByUsername(adminUsername).isEmpty()) {
